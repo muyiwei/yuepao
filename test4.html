@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>
+
+    </title>
+    <style>
+        
+      .contianer{
+        overflow:hidden;
+        width:200px;
+      }
+      ul{
+        
+        font-size:0;
+       transition:transform 1s;
+      }
+   li:first-child{
+        
+        left:0;
+      }
+
+      li{
+        position:absolute;
+        width:100%;
+        font-size:20px;
+        height:200px;
+         left:-100%;
+        transition:left  500ms ease 0s;
+      }
+      li:hover{
+        left:50%;
+      }
+      *{
+        margin:0;
+        padding:0;
+      }
+
+ 
+    </style>
+</head>
+<body>
+
+<div class="contianer" >
+<ul id="t">
+    
+<li style="background:yellow">1</li>
+<li style="background:red">2</li>
+
+</ul>   
+
+</div>  
+
+
+<script>    
+  setTimeout(function(){
+var lis = document.getElementsByTagName("li");
+count = 0 ;
+setInterval(function(){
+lis[1].style["transition"]="left 1s";
+lis[0].style["transition"]="left 1s";
+if(count==0)
+ { 
+
+lis[0].style.left="100%";
+lis[1].style.left="0"
+count=1;
+setTimeout(function(){
+lis[0].style["transition"]="none 0s";
+lis[0].style.left="-100%"
+
+},1000)
+}
+else
+{
+count=0;
+lis[0].style.left="0";
+lis[1].style.left="100%"
+
+setTimeout(function(){
+lis[1].style["transition"]="none 0s";
+lis[1].style.left="-100%"
+
+},1000)
+
+}
+
+
+
+
+},3000)
+  },0)
+
+
+</script>
+
+
+</body>
+</html>

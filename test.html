@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>
+
+	</title>
+	<style>
+		
+      .contianer{
+      	overflow:hidden;
+      	width:200px;
+      }
+      ul{
+      	width:400%;
+      	font-size:0;
+        animation:switch 10s linear 1s ;
+      }
+      li{
+      	width:25%;
+      	display:inline-block;
+      	font-size:20px;
+      	height:200px;
+      }
+      *{
+      	margin:0;
+      	padding:0;
+      }
+
+ @keyframes switch{
+ 	0% {transform:translateX(0);}
+ 	25% {transform:translateX(-25%);}
+    50% {transform:translateX(-50%);}
+    75% {transform:translateX(-75%);} 
+     100% {transform:translateX(-100%);}
+ }
+	</style>
+</head>
+<body>
+
+<div class="contianer">
+<ul >
+	
+<li style="background:yellow">1</li>
+<li style="background:red">2</li>
+<li style="background:black">3</li>
+<li style="background:blue">4</li>
+</ul>	
+
+</div>	
+
+
+
+
+
+</body>
+</html>

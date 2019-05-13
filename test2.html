@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>
+
+    </title>
+    <style>
+        
+      .contianer{
+        overflow:hidden;
+        width:200px;
+      }
+      ul{
+        width:400%;
+        font-size:0;
+       transition:transform 1s;
+      }
+      li{
+        width:25%;
+        display:inline-block;
+        font-size:20px;
+        height:200px;
+      }
+      *{
+        margin:0;
+        padding:0;
+      }
+
+ 
+    </style>
+</head>
+<body>
+
+<div class="contianer" >
+<ul id="t">
+    
+<li style="background:yellow">1</li>
+<li style="background:red">2</li>
+<li style="background:blue">3</li>
+<li style="background:yellow">1</li>
+</ul>   
+
+</div>  
+
+
+<script>    
+
+count = 0 ;
+setInterval(function(){
+count+=25;
+
+    t.style["transition"] = "transform 1s";
+    t.style["transform"] = "translateX(-"+count+"%)";
+    
+if(count==75)
+{count=0;
+setTimeout(function(){
+    t.style["transition"] = "none 0s";
+t.style["transform"] = "translateX(0%)";
+},1000)    
+
+
+}
+
+
+
+
+
+
+
+
+},2000)
+
+</script>
+
+
+</body>
+</html>

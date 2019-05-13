@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+            list-style: none;
+        }
+        .image{
+            width: 400px;
+            height: 200px;
+            border: 1px solid black;
+            margin: 100px auto;
+            position: relative;
+            overflow: hidden;
+        }
+        ul{
+            width: 2400px;
+            position: absolute;
+            left: 0px;
+        }
+        .image li {
+            float: left;
+        }
+        .image li img{
+            width: 400px;
+            height: 200px;
+            vertical-align: top;
+
+        }
+        .nav{
+            position: absolute;
+            width: 150px;
+            height: 20px;
+            top: 170px;
+            right: 120px;
+            z-index: 100;
+        }
+        .nav .olli{
+            width: 20px;
+            height: 20px;
+            margin-left: 8.5px;
+            color: #ffffff;
+            background-color: #cccccc;
+            text-align: center;
+            line-height: 20px;
+        }
+        .action{
+            background-color: red;
+            color: white;
+        }
+    </style>
+    <script src="../js/jquery-3.3.1.js"></script>
+</head>
+<body>
+    <div class="image">
+        <ul>
+//将需要轮播图片的最后加上第一张轮播图片
+            <li>
+                <img src="../img/1.jpg"/>
+            </li>
+            <li>
+                <img src="../img/2.jpg"/>
+            </li>
+            <li>
+                <img src="../img/3.jpg"/>
+            </li>
+            <li>
+                <img src="../img/4.jpg"/>
+            </li>
+            <li>
+                <img src="../img/5.jpg"/>
+            </li>
+            <li>
+                <img src="../img/1.jpg"/>
+            </li>
+        </ul>
+        <div class="nav">
+            <ol>
+                <li class="olli">1</li>
+                <li class="olli">2</li>
+                <li class="olli">3</li>
+                <li class="olli">4</li>
+                <li class="olli">5</li>
+            </ol>
+        </div>
+    </div>
+    <script>
+//设置定时器
+        $(function () {
+            var a = 0;
+            var times = setInterval(function () {
+//因为我设置图片宽度为400px a为整体偏移量偏移400 将正好显示一张图片 当a偏移到2000px也就是第五张图片时 将a的偏移量为0 重新轮播。
+//因为是在一个定时器内 如果a == 2400  视图将多偏移400px 如果不再第六张图片位置加第一张 定时器将会在一秒内从最后一张显示到正数第二张 
+                if(a == 2000){
+                    a = 0;
+                    $(".image>ul").css({left:-a});
+                }
+                a =  a + 400;
+                $(".image>ul").animate({left:-a});
+            },1000);
+
+        })
+    </script>
+</body>
+</html>
