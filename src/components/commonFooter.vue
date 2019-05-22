@@ -5,7 +5,7 @@
 <ul>
 	<li class="home">
     <div class="iconfont">&#xe8a0;</div>
-	<div>{{ $langStr.lang}}</div>
+	<div>{{$showLang("home")}}</div>
 </li>
 	<li class="go">
    <div class="iconfont">&#xe604;</div>
@@ -40,8 +40,7 @@ var a = {
 	export default
 	{
    created(){
-		 setTimeout(()=>console.log(this.$langStr),100)
-		// setTimeout(()=>{Vue.set(this.$data,"d",44)},200)
+		
 	 },
 	 data(){
 		 return {c:a}

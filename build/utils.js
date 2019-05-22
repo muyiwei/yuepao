@@ -9,7 +9,6 @@ exports.assetsPath = function (_path) {
     ? config.build.assetsSubDirectory
     : config.dev.assetsSubDirectory
   var  path1 = path.posix.join(assetsSubDirectory, _path);
-  console.log("path:="+path1);
   return path1;
 }
 
@@ -45,14 +44,14 @@ exports.cssLoaders = function (options) {
 
     // Extract CSS when that option is specified
     // (which is the case during production build)
-    if (options.extract) {
-      return ExtractTextPlugin.extract({
-        use: loaders,
-        fallback: 'vue-style-loader'
-      })
-    } else {
+    // if (options.extract) {
+    //   return ExtractTextPlugin.extract({
+    //     use: loaders,
+    //     fallback: 'vue-style-loader'
+    //   })
+    // } else {
       return ['vue-style-loader'].concat(loaders)
-    }
+   // }
   }
 
   // https://vue-loader.vuejs.org/en/configurations/extract-css.html

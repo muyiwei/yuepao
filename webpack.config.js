@@ -1,67 +1,51 @@
 var webpack = require("webpack");
-const path = require("path");
 const rm = require('rimraf')
-const ExtractTextPlugin = require('extract-text-webpack-plugin')
-const OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
+
+// const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+
+
+class test {
+    apply(compiler) {
+        compiler.hooks.compilation.tap("test", compilation => {
+            console.log("webpack test 构建过程开始！");
+            compilation.hooks.buildModule.tap("test",function(module){
+              
+            })
+        });
+        compiler.hooks.emit.tap("test", compilation => {
+            console.log("准备生成 chunks");
+           
+            
+        });        
+    }
+}
+
 var option={
  entry:{
- index:__dirname+"/src/main.js"
+ index:__dirname+"/src/main2.js"
  }
 ,
-output:{
-	filename:"[name].js",
-	path:__dirname+"/dist1"
-},
 module:{
-	rules:[
-      
-      {
-        test: /\.js$/,
-       loader: 'babel-loader',
-         include:[path.resolve(__dirname,"src")]
-       },
-      {
-      	test:/\.css$/,
-include:[path.resolve(__dirname,"src")],
-      	use:ExtractTextPlugin.extract({
-          fallback: "style-loader",
-          use: "css-loader"
-        })
+  rules:[
+  {
+    test:/\.js$/,
+    loader:"babel-loader"
+  }
 
-      }
-
-	]
+  ]
 }
 ,
-// devServer: {
-// 		inline: true,
-// 		historyApiFallback: true,
-// 		port: 80,
-// 		contentBase: "./dist"
-// 	},
-	plugins:[ 
-  new ExtractTextPlugin("styles.css"),
-
-// new OptimizeCSSPlugin({
-//       cssProcessorOptions: 
-//         { safe: true, map: { inline: false } }
-        
-//     }),
-  ]
-
+output:{
+  filename:"[name].js",
+  path:__dirname+"/dist1"
+},
+plugins:[new test()
+]
 }
-rm(path.resolve(__dirname,"dist1"),function(){
-	webpack(option,function(error,state){
-    console.log(error)
-	console.log(state.toString({
-      colors: true,
-      modules: false,
-      children: false, // If you are using ts-loader, setting this to true will make TypeScript errors show up during build.
-      chunks: false,
-      chunkModules: false
-    }))
-
-});
+rm(__dirname+"/dist1",function(){
+  webpack(option,function(error,states){
+   console.log(states.toString())
+})
 })
 
 module.exports = option;

@@ -49,8 +49,13 @@ $footerHeight : px2rem(94px);
   font-family: 'iconfont';
 }
 .main{
-  margin-top:$headerHeight;
-  margin-bottom:$footerHeight;
+  position:absolute;
+  top:$headerHeight;
+  bottom:$footerHeight;
+  overflow:scroll;
+  left:0;
+  right:0;
+  -webkit-overflow-scrolling: touch;
 }
 .header
 {

@@ -7,10 +7,6 @@ const VueLoaderPlugin = require('vue-loader/lib/plugin')
 function resolve (dir) {
   return path.join(__dirname, '..', dir)
 }
-console.log("-----------------")
-console.log(path.resolve(__dirname,"src"))
-console.log(resolve("src"));
-console.log("-----------------")
 const createLintingRule = () => ({
   test: /\.(js|vue)$/,
   loader: 'eslint-loader',
@@ -48,11 +44,11 @@ module.exports = {
   },
   module: {
     rules: [
-     //  {
-     //    test:/\.css$/,
-     //    loader:["style-loader","css-loader","sass-loader"]
+    //   {
+    //     test:/\.css$/,
+    //     loader:["style-loader","css-loader","sass-loader"]
 
-     // },
+    //  },
     ...(config.dev.useEslint ? [createLintingRule()] : []),
       {
         test: /\.vue$/,
@@ -62,7 +58,7 @@ module.exports = {
       {
         test: /\.js$/,
         loader: 'babel-loader',
-        include: [resolve('src'), resolve('test'), resolve('node_modules/webpack-dev-server/client')]
+        include: [resolve('src')]
        },
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,

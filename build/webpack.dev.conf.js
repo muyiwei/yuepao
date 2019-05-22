@@ -9,7 +9,10 @@ const CopyWebpackPlugin = require('copy-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
 const portfinder = require('portfinder')
-
+const express =require("express");
+var router = express.Router();
+var app = express();
+var handerAjax = require("../src/server/handerAjax").handerAjax;
 const HOST = "0.0.0.0"
 const PORT = process.env.PORT && Number(process.env.PORT)
 
@@ -32,7 +35,7 @@ const devWebpackConfig = merge(baseWebpackConfig, {
       ],
     },
     hot: true,
-    contentBase: false, // since we use CopyWebpackPlugin.
+    contentBase: utils.assetsPath("../src"), // since we use CopyWebpackPlugin.
     compress: true,
     host: HOST || config.dev.host,
     port: PORT || config.dev.port,
@@ -47,12 +50,7 @@ const devWebpackConfig = merge(baseWebpackConfig, {
       poll: config.dev.poll,
     },
     before(app) {
-      app.get('/api/goods', (req, res) => {
-        res.json({
-          code: 0,
-          data: goods
-        })
-      })
+      handerAjax(app)
     } 
     /* datura_lj 增加路由规则 end */
   
