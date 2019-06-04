@@ -1,5 +1,5 @@
-export default const mutation={
-	setUserName:function(state,userName){
+export default {
+	userName:function(state,userName){
         
         state.userName = userName;
 	},

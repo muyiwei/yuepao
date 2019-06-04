@@ -6,6 +6,12 @@
   		</swiper-slide>
 		
   	</swiper>	
+
+    {{userName}}
+    {{fullName}}
+    <div @click="click">  </div>     
+     <input v-model="oo.message" />
+     {{oo.message}}
     <pull-list :count="listCount"></pull-list>
   </div>
 </template>
@@ -32,6 +38,43 @@ export default {
       listCount:10
    }
   },
+  
+  computed:{
+    userName:function(){
+      
+      return this.$store.state.userName;
+    },
+
+    fullName :function(){
+
+      return this.$store.getters.getFullName;
+    },
+    oo:function(){
+      return this.$store.state.oo;
+    }
+       
+  }
+   ,
+  beforeRouteEnter:function(to,from,next){
+    
+    //debugger;
+    //console.log("beforeRouterEnter "+this.$store)
+    next();
+
+  },
+  beforeCreate:function(){
+     
+    console.log("before create "+this.$store)
+    var self = this;
+    this.$store.dispatch("GET_LIST").then(function(data){
+        
+        self.listCount = data.listCount;
+    });
+  }
+  ,
+
+
+
   components: {
   swiper,
   swiperSlide,
@@ -59,7 +102,8 @@ export default {
 
     },
     click(){
-      console.log("click")
+   this.$store.commit("userName","hhh");
+     
     }
   }
 }

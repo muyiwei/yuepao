@@ -65,7 +65,7 @@ $footerHeight : px2rem(94px);
 .footer
 {
   height:$footerHeight;
-  background:#FFF;
+  background:#FCFCFC;
 }
 
 </style>

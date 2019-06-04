@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack:///./src/il8n/lang/en-us.js"],"names":["__webpack_require__","r","__webpack_exports__","default","home"],"mappings":"yFAAAA,EAAAC,EAAAC,GAAcA,EAAAC,QAAA,CACbC,KAAK","file":"static/js/1.139ff7600813ef70fcf6.js","sourcesContent":["export default{\r\n\thome:\"home\"\r\n}"],"sourceRoot":""}

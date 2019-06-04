@@ -1,7 +1,7 @@
-export  const getter={
+export default {
 	getFullName:function(state)
 	{
-		return state.name;
+		return state.userName+"  fff";
 	},
 	getAge:function(sate)
 	{

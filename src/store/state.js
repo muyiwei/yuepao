@@ -1,7 +1,11 @@
 export default {
 
-      userName:"",
+      userName:"sss",
       password:"",  
-      title:"home"
+      title:"home",
+      oo:{
+            message:"111"
+         
+      }
 
 }

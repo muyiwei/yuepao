@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack:///./src/il8n/lang/zh-cn.js"],"names":["__webpack_require__","r","__webpack_exports__","default","home"],"mappings":"yFAAAA,EAAAC,EAAAC,GAAcA,EAAAC,QAAA,CACbC,KAAK","file":"static/js/2.f8bc91d27520ac35d7e8.js","sourcesContent":["export default{\r\n\thome:\"首页\"\r\n}"],"sourceRoot":""}

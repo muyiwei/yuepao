@@ -12,8 +12,8 @@ db.connect();
 }
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true })); 
-app.use(path, apiRoutes);
-app.post("/:list",function(req,res){
+// app.use(path, apiRoutes);
+app.post("/api/:list",function(req,res){
 console.log(req.query,req.params)
 console.log(req.body);
 controller(req,res);
