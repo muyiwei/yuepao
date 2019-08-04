@@ -1,0 +1,24 @@
+$themRed:(
+bg:red
+);
+$themGreen:(
+    bg:blue
+);
+
+$thems:(
+    themdRed:$themRed,
+    themdGreen:$themGreen
+);
+
+@mixin getThem($attr,$color){
+
+    @each $themName ,$themValue in $thems{
+        [themName=#{$themName}] &{
+            #{$attr}:map-get($themValue,bg);
+        }
+    }
+}
+
+a{
+    @include getThem(background,bg);
+}
