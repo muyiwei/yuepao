@@ -1,3 +1,6 @@
+import {getList} from "../ajax";
+
+
 export default {
 	setUserName:function(){
          console.log("action set userName")
@@ -5,14 +8,12 @@ export default {
 	setAge:function(){
         console.log("action set age");
 	},
-	"GET_LIST":function(){
-		return new Promise(function(resolve,reject){
-            
-            setTimeout(function(){
-            	resolve({listCount:20})
-            })
-
+	"GET_LIST":function({commit},data){
+		return getList(data).then(function(response){
+             commit("SETLIST",response.data);
 		})
-	}
+
+		}
+	
 
 }

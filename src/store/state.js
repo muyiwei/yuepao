@@ -6,6 +6,8 @@ export default {
       oo:{
             message:"111"
          
-      }
+      },
+      list:{},
+      
 
 }

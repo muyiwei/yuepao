@@ -12,7 +12,7 @@
     <div @click="click">  </div>     
      <input v-model="oo.message" />
      {{oo.message}}
-    <pull-list :count="listCount"></pull-list>
+    <pull-list :count="listCount" :list="list"></pull-list>
   </div>
 </template>
 
@@ -51,6 +51,9 @@ export default {
     },
     oo:function(){
       return this.$store.state.oo;
+    },
+    list:function(){
+      return this.$store.state.list
     }
        
   }
@@ -66,10 +69,7 @@ export default {
      
     console.log("before create "+this.$store)
     var self = this;
-    this.$store.dispatch("GET_LIST").then(function(data){
-        
-        self.listCount = data.listCount;
-    });
+    this.$store.dispatch("GET_LIST");
   }
   ,
 

@@ -1,23 +1,28 @@
 <template>
   <div id="app">
-   <common-header class="header"></common-header>  
- 
 
 
-   
- 
- <router-view class="main">
-   
-   
- </router-view>
 
 
- <common-footer class="footer"/>
 
-    
+   <div @click="click" style="margin-top:200px">
+
+ class bkj
+
    </div>
 
-  
+ <!-- <router-view class="main">
+
+
+ </router-view> -->
+
+
+
+<div :is="component"></div>
+
+   </div>
+
+
 </template>
 
 <script>
@@ -25,10 +30,53 @@
 
 import commonHeader from './components/commonHeader'
 import commonFooter from './components/commonFooter'
+import Vue from 'vue';
+
+
+
+
+
 export default {
   name: 'app',
    components:{commonHeader,commonFooter},
-   
+   data(){
+     return {
+       a:11,
+       component:""
+     }
+   },
+   create:function(){
+
+   },
+   methods:{
+     click:function(){
+
+  var template = `<div><common-footer class="footer"/></div>`
+  Vue.component("my-html", {
+          data() {
+              return {
+                  content: '',
+                  title: "哈哈哈哈哈",
+
+              }
+          },
+          components:{
+            commonFooter
+          }
+          ,
+
+          template: template,
+          mounted() {
+
+          }
+      })
+
+
+
+  this.component="my-html"
+     }
+   }
+
 }
 </script>
 

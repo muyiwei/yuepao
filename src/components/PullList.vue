@@ -1,7 +1,7 @@
 <template>
 <div >
 	<div v-for="i in list">
-		<div>{{i}}</div>
+		<div></div>
 	</div>
 
 
@@ -13,7 +13,7 @@
 
 <script>
 	export default{
-		props:["count"],
+		props:["list"],
 		// data(){
 		// 	// return {
 		// 	// 	count:10
@@ -21,15 +21,6 @@
 		// },
 		computed:{
 
-			list(){
-				var list = [];
-				for(let i = 0;i<this.count;i++)
-				{
-					list.push(i)
-				}
-				return list;
-
-			}
 		}
 	}
 

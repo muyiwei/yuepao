@@ -3,12 +3,12 @@
 <div class="header">
 
 <div class="header-container">
-<div class="title" >首页</div>
-
+<div class="title" @click="click">首页</div>
+<div>{{name}}</div>
 <div class="right-ico iconfont"> &#xe663;
 </div>
 </div>
-
+<commonFooter></commonFooter>
 </div>
 
 
@@ -16,12 +16,21 @@
 
 
 <script>
+import commonFooter from './commonFooter'
 	export default{
-		
+		props:["name"],
+		data:function(){
+			return {
+				a:12
+			}
+		},
 		methods:{
 			click(){
-
+              this.a=new Date().getTime();
 			}
+		},
+		components:{
+			commonFooter
 		}
    
 	}
