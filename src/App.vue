@@ -15,7 +15,7 @@
 
 
  </router-view> -->
-
+<div id="content"></div>
 
 
 <div :is="component"></div>
@@ -70,10 +70,22 @@ export default {
 
           }
       })
+var Profile = Vue.extend({
+  template: '<div><common-footer class="footer"/></div>',
+  data: function () {
+    return {
+      firstName: 'Walter',
+      lastName: 'White',
+      alias: 'Heisenberg'
+    }
+  },
+  components:{commonFooter}
+})
+// 创建 Profile 实例，并挂载到一个元素上。
+new Profile().$mount('#content')
 
 
-
-  this.component="my-html"
+  //this.component="my-html"
      }
    }
 
